@@ -3,8 +3,17 @@
     <div class="h-full  pl-10" x-data="{showDesc: true}">
         <main id="dashboard-main" class=" px-4 py-10">
         <!-- Put your content inside of the <main/> tag -->
-        <h1 class="text-2xl font-black text-gray-800">Bienvenu!</h1>
-        <p class="mb-6 text-gray-600">Ajouter un traitment</p>
+        <div class="h flex justify-between">
+            <div class="">
+                <h1 class="text-2xl font-black text-gray-800">Bienvenu!</h1>
+                <p class="mb-6 text-gray-600">Ajouter un traitment</p>
+
+            </div>
+
+            <button  class="m-2   inline-flex items-center justify-center rounded-xl border border-transparent bg-blue-600 px-5 py-2 font-medium text-white hover:bg-blue-700"> Ajouter </button>
+        </div>
+
+
 
         <div class="w-full rounded-md rounded-b-none  mx-auto" >
             <div class="bg-white rounded-md rounded-b-none py-2 px-3">
@@ -23,7 +32,7 @@
 
             
             <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Your message</label>
-            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write your thoughts here..."></textarea>
+            <textarea id="message" rows="4" class="block  resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write your thoughts here..."></textarea>
 
         </div>
           
@@ -55,7 +64,7 @@
                             préalable de la personne concernée?</label>
                     </div>
                 </li>
-    
+
                 <li class="w-full  rounded-t-lg ">
                     <div class="flex items-center pl-3">
                         <input wire:model="a74" id="chbx4" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2 ">
@@ -93,6 +102,8 @@
                 
             </ul>
         </div>
+
+
         </main>
     </div>
 </x-dash-layout>

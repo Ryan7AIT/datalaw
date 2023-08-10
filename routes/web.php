@@ -25,6 +25,9 @@ Route::get('/lawtest', function() {
 });
 
 Route::get('/dashboard/traitment/add', [ProceesController::class, 'create']);
+Route::get('/dashboard/traitment/{id}/edit', [ProceesController::class, 'edit']);
+Route::get('/dashboard/traitments', [ProceesController::class, 'index']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

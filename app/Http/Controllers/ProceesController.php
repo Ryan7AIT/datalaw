@@ -11,7 +11,7 @@ class ProceesController extends Controller
      */
     public function index()
     {
-        //
+        return view('showprocesses');
     }
 
     /**
@@ -43,7 +43,7 @@ class ProceesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('editprocess');
     }
 
     /**

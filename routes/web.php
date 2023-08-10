@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProceesController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/lawtest', function() {
+    return view('lawtest');
+});
+
+Route::get('/dashboard/traitment/add', [ProceesController::class, 'create']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -2,7 +2,7 @@
 <x-dash-layout>
 
     <div class="h-full overflow-hidden pl-10">
-        <main id="dashboard-main" class="h-[calc(100vh-10rem)] overflow-auto px-4 py-10">
+        <main id="dashboard-main" class="h-[calc(100vh-8rem)] overflow-auto px-4 py-10">
         <!-- Put your content inside of the <main/> tag -->
         <h1 class="text-2xl font-black text-gray-800">Bienvenu!</h1>
         <p class="mb-6 text-gray-600">notre solution complète de mise en conformité à la loi 18-07 sur la protection des données à caractère personnel.</p>

@@ -36,9 +36,9 @@
             border-radius: 10px;
           }
         </style>
-        
-        <div class="bg-slate-200 flex h-screen">
-          <aside class="fixed z-50 md:relative">
+
+        <div class="bg-slate-200 flex min-h-screen">
+          <aside class="fixed min-h-screen z-50 md:relative">
             <!-- Sidebar -->
             <input type="checkbox" class="peer hidden" id="sidebar-open" />
             <label class="peer-checked:rounded-full peer-checked:p-2 peer-checked:right-6 peer-checked:bg-gray-600 peer-checked:text-white absolute top-8 z-20 mx-4 cursor-pointer md:hidden" for="sidebar-open">
@@ -75,7 +75,7 @@
                     ><span class="">Live test</span>
                     </a>
 
-                  
+
                 </li>
                 <li class="relative">
                   <a href="/dashboard/traitments" class="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
@@ -135,9 +135,9 @@
                   </button>
                 </li>
               </ul>
-        
+
               <div class="my-6 mt-auto ml-10 flex cursor-pointer">
-                
+
                 <div class="ml-3">
                   <p class="font-medium">Ryan</p>
                   <p class="text-sm text-gray-300">Data First</p>
@@ -146,8 +146,8 @@
             </nav>
           </aside>
           <!-- /Sidebar -->
-        
-          <div class="flex h-full w-full flex-col">
+
+          <div class="flex  h-full min-h-screen  w-full flex-col">
             <!-- Navbar -->
             <header class="relative flex flex-col items-center bg-white px-4 py-4 shadow sm:flex-row md:h-20">
               <div class="flex w-full flex-col justify-between overflow-hidden transition-all sm:max-h-full sm:flex-row sm:items-center">
@@ -158,7 +158,7 @@
                   </svg>
                   <input type="name" name="search" class="h-12 w-full rounded-md border border-gray-100 bg-gray-100 py-4 pr-4 pl-12 shadow-sm outline-none focus:border-blue-500" placeholder="Search for anything" />
                 </div>
-        
+
                 <ul class="mx-auto mt-4 flex space-x-6 sm:mx-5 sm:mt-0">
                   <li class="">
                     <button class="flex h-8 w-8 items-center justify-center rounded-xl border text-gray-600 hover:text-black hover:shadow">
@@ -186,13 +186,15 @@
               </div>
             </header>
             <!-- /Navbar -->
-        
-            {{$slot}}
+
+            <main class="">
+                {{$slot}}
+            </main>
           </div>
         </div>
-        
-        
-        
+
+
+
         @livewireScripts
     </body>
 </html>

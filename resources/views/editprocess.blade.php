@@ -1,11 +1,14 @@
 <x-dash-layout>
-        
-    <div class="edit mt-8 mx-6  px-2">
-        <div class="head sm:flex sm:items-center sm:justify-between flex-col sm:flex-row">
-            <p class="flex-1 text-base font-bold text-gray-900">Details de traitment</p>
 
-        </div>
+    <div class="edit   h-full overflow-hidden pl-10 ">
+        <main id="dashboard-main" class="h-[calc(100vh-8rem)] overflow-auto px-4 py-10">
 
-        <livewire:process.show-edit-process/>
+            <div class="head sm:flex sm:items-center sm:justify-between flex-col sm:flex-row">
+                <p class="flex-1 text-base font-bold text-gray-900">Details de traitment</p>
+
+            </div>
+
+            <livewire:process.show-edit-process/>
+        </main>
     </div>
 </x-dash-layout>

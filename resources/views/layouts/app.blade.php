@@ -15,11 +15,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="font- antialiased text-gray-900 text-sm font-sans">
+    <body class=" antialiased text-gray-900 text-sm font-sans">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
-            
+
 
             <!-- Page Content -->
             <main class="">

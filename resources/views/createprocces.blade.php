@@ -1,5 +1,5 @@
 <x-dash-layout>
-    
+
     <div class="h-full  pl-10" x-data="{showDesc: true}">
         <main id="dashboard-main" class=" px-4 py-10">
         <!-- Put your content inside of the <main/> tag -->
@@ -19,25 +19,32 @@
             <div class="bg-white rounded-md rounded-b-none py-2 px-3">
               <nav class="flex flex-wrap gap-4">
                 <p  :class="showDesc ? 'text-purple-600 font-semibold border-b-purple-600' : ' hover:border-b-purple-600 hover:text-purple-600' "  @click="showDesc = true" class="inline-flex whitespace-nowrap border-b-2 border-transparent cursor-pointer py-2 px-3 text-sm  transition-all duration-200 ease-in-out "> Description </p>
-          
-                
-          
+
+
+
                 <p :class="!showDesc ? 'text-purple-600 font-semibold border-b-purple-600' : ' hover:border-b-purple-600 hover:text-purple-600' "  @click="showDesc = false" class="inline-flex whitespace-nowrap border-b-2 border-transparent  cursor-pointer py-2 px-3 text-sm  transition-all duration-200 ease-in-out"> fondement légal  </p>
               </nav>
             </div>
         </div>
 
 
-        <div class="desc bg-white rounded-md px-10 py-4 rounded-t-none "  x-show="showDesc"> 
+        <div class="desc bg-white rounded-md px-10 py-4 rounded-t-none "  x-show="showDesc">
 
-            
-            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Your message</label>
+
+            <div class="relative z-0">
+                <input type="text" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                <label for="name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nom du traitement</label>
+            </div>
+
+
+
+            <label for="message" class="block mb-2 mt-10 text-sm font-medium text-gray-900 ">Your message</label>
             <textarea id="message" rows="4" class="block  resize-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write your thoughts here..."></textarea>
 
         </div>
-          
+
         <div class="bg-white rounded-md rounded-t-none px-10 py-4  " x-show="!showDesc">
-            
+
             <ul class=" leading-8  text-left px-4 py-2 mx-auto text-sm transition delay-75 mt-4 font-medium text-gray-900   ">
                 <li class="w-full  rounded-t-lg ">
                     <div class="flex items-center pl-3">
@@ -51,10 +58,10 @@
                         <input wire:model="a72" id="chbx12" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600  focus:ring-2">
                         <label for="chbx12" class="w-full py-3 ml-2 pl-4 text-sm font-medium text-gray-900 ">La personne concernée peut, à tout moment, se rétracter?</label>
                     </div>
-                    
+
                 </li>
                 <li class="w-full  rounded-t-lg ">
-                    
+
                     <div class="flex items-center pl-3">
                         <input wire:model="a73" id="chbx13" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600  focus:ring-2">
                         <label for="chbx13" class="w-full py-3 ml-2 pl-4 text-sm font-medium text-gray-900 ">Les données à caractère personnel objet du traitement ne
@@ -96,10 +103,10 @@
                             finalités pour lesquelles elles sont collectées ou traitées?</label>
                     </div>
                 </li>
-                
 
 
-                
+
+
             </ul>
         </div>
 

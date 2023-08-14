@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Process;
 use Illuminate\Http\Request;
 
 class ProceesController extends Controller
@@ -11,7 +12,11 @@ class ProceesController extends Controller
      */
     public function index()
     {
-        return view('showprocesses');
+
+        $proceess = Process::all();
+        return view('showprocesses', [
+            'proceess' => $proceess
+        ]);
     }
 
     /**
@@ -35,7 +40,7 @@ class ProceesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('auditprocees');
     }
 
     /**
@@ -43,7 +48,13 @@ class ProceesController extends Controller
      */
     public function edit(string $id)
     {
-        return view('editprocess');
+
+        $process = Process::find($id);
+
+
+        return view('editprocess', [
+            'process' => $process
+        ]);
     }
 
     /**

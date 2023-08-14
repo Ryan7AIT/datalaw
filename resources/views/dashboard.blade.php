@@ -10,7 +10,7 @@
             <div class="h-56 w-72 rounded-xl bg-white text-gray-700 p-10 shadow-md text-center font-medium text-xl">
                 <p >Nombre de traitement</p>
                 <br>
-                <span class="text-gray-900 font-semibold">0</span>
+                <span class="text-gray-900 font-semibold">{{$proceessCount}}</span>
             </div>
             <div class="h-56 w-72 rounded-xl text-red-700 bg-white p-10 shadow-md text-center  font-medium text-xl">
                 <p >Nombre de violation</p>

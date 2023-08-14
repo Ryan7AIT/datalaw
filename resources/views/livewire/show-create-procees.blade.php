@@ -1,7 +1,4 @@
-<div class="details  mt-6  px-4 py-6  bg-white rounded-xl border shadow  w-full  m-auto relative"
-x-cloak
-    x-data="{ show: false }"
-    >
+<div class="details  mt-6  px-4 py-6 bg-white rounded-xl border shadow  w-full  m-auto relative">
     <div class="w-full  mx-auto">
           <nav class="flex flex-wrap gap-2 ">
             <button wire:click="$set('active', 'description')" class=" {{$active == 'description' ? 'text-purple-600 border-b-purple-600 font-semibold' : 'text-gray-600 font-medium'}} inline-flex whitespace-nowrap border-b-2 border-transparent py-2 px-3 text-sm font-medium  transition-all duration-200 ease-in-out hover:border-b-purple-600 hover:text-purple-600"> Description </button>
@@ -23,8 +20,8 @@ x-cloak
             <button  wire:click="$set('active', 'a147')"class=" {{$active == 'a147' ? 'text-purple-600 border-b-purple-600 font-semibold' : 'text-gray-600 font-medium'}} inline-flex whitespace-nowrap border-b-2 border-transparent  py-2 px-2 text-sm font-medium hover:text-purple-600 hover:border-b-purple-600 transition-all duration-200 ease-in-out"> Art 14.7 </button>
 
             <button  wire:click="$set('active', 'a148')"class=" {{$active == 'a148' ? 'text-purple-600 border-b-purple-600 font-semibold' : 'text-gray-600 font-medium'}} inline-flex whitespace-nowrap border-b-2 border-transparent  py-2 px-2 text-sm font-medium hover:text-purple-600 hover:border-b-purple-600 transition-all duration-200 ease-in-out"> Art 14.8 </button>
-
-            {{-- <button  wire:click="$set('active', 'a149')"class=" {{$active == 'a149' ? 'text-purple-600 border-b-purple-600 font-semibold' : 'text-gray-600 font-medium'}} inline-flex whitespace-nowrap border-b-2 border-transparent  py-2 px-2 text-sm font-medium hover:text-purple-600 hover:border-b-purple-600 transition-all duration-200 ease-in-out"> Art 14.9 </button> --}}
+{{--
+            <button  wire:click="$set('active', 'a149')"class=" {{$active == 'a149' ? 'text-purple-600 border-b-purple-600 font-semibold' : 'text-gray-600 font-medium'}} inline-flex whitespace-nowrap border-b-2 border-transparent  py-2 px-2 text-sm font-medium hover:text-purple-600 hover:border-b-purple-600 transition-all duration-200 ease-in-out"> Art 14.9 </button> --}}
           </nav>
       </div>
 
@@ -32,9 +29,11 @@ x-cloak
 
 
 
-        <form wire:submit.prevent="updateProcess" class="">
+        {{-- descritpion --}}
 
-            <button @click="show=true" type="submit" class="m-2 absolute -top-16 right-2 inline-flex items-center justify-center rounded-xl border border-transparent bg-blue-600 px-5 py-3 font-medium text-white hover:bg-blue-700"> Modifier </button>
+        <form wire:submit.prevent="createProcess" class="">
+
+            <button type="submit" class="m-2 absolute -top-16 right-2 inline-flex items-center justify-center rounded-xl border border-transparent bg-blue-600 px-5 py-3 font-medium text-white hover:bg-blue-700"> Ajouter </button>
 
 
             @if($active == 'description')
@@ -48,6 +47,7 @@ x-cloak
 
 
 
+            {{-- fond --}}
             @elseif($active == 'fond')
 
                 <div class="bg-white rounded-md rounded-t-none px-2 py-4  " >
@@ -447,31 +447,5 @@ x-cloak
 
 
       </div>
-
-              <!-- Success -->
-            <div
-
-                x-transition:enter.duration.400ms
-                x-transition:leave.duration.300ms
-                x-transition
-                x-show="show"
-                x-init="setTimeout(() => show = false, 5000)"
-
-                class="fixed transition bottom-0 right-2 m-2 my-8 max-w-sm rounded-lg border border-gray-100 bg-white px-12 py-6 shadow-md">
-                  <button class="absolute top-0 right-0 p-4 text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-4">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  <p class="relative mb-1 text-sm font-medium">
-                    <span class="absolute -left-7 flex h-5 w-5 items-center justify-center rounded-xl bg-green-400 text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-3 w-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                    </span>
-                    <span class="text-gray-700"> Updated successfuly!</span>
-                  </p>
-                  <p class="text-sm text-gray-600">Traitment modifier avec succès</p>
-            </div>
 
 </div>

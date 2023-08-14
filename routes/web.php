@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProceesController;
-
+use App\Models\Process;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,12 +25,19 @@ Route::get('/lawtest', function() {
 });
 
 Route::get('/dashboard/traitment/add', [ProceesController::class, 'create']);
+Route::get('/dashboard/traitment/{id}/audit', [ProceesController::class, 'show']);
+
 Route::get('/dashboard/traitment/{id}/edit', [ProceesController::class, 'edit']);
 Route::get('/dashboard/traitments', [ProceesController::class, 'index']);
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+
+    $proceessCount = Process::all()->count();
+
+    return view('dashboard', [
+        'proceessCount' => $proceessCount
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

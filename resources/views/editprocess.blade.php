@@ -8,7 +8,7 @@
 
             </div>
 
-            <livewire:process.show-edit-process/>
+            <livewire:process.show-edit-process :process="$process"/>
         </main>
     </div>
 </x-dash-layout>

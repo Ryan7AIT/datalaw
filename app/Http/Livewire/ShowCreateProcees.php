@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ShowCreateProcees extends Component
 {
-    public $active = 'a145';
+    public $active = 'description';
     public $Pname;
     public $Pdesc;
     public $fond1;
@@ -37,7 +37,7 @@ class ShowCreateProcees extends Component
 
 
     public function createProcess() {
-        Process::create([
+        $process = Process::create([
             "nom" => $this->Pname,
             "description" => $this->Pdesc,
             "fond1" => $this->fond1,
@@ -68,6 +68,7 @@ class ShowCreateProcees extends Component
         ]);
 
         session()->flash('message', 'Traitment créé avec succès');
+
 
 
         return redirect('/dashboard/traitments');

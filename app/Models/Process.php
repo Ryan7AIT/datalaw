@@ -32,10 +32,7 @@ class Process extends Model
         return $this->attributes['fond4'] == 1; // Cast to true or false
     }
 
-    // public function getFond4Attribute()
-    // {
-    //     return $this->attributes['fond4'] == 1; // Cast to true or false
-    // }
+
 
     public function getFond5Attribute()
     {
@@ -51,4 +48,9 @@ class Process extends Model
     {
         return $this->attributes['fond7'] == 1; // Cast to true or false
     }
+
+    public function audits() {
+        return $this->hasMany(Audit::class);
+    }
+
 }

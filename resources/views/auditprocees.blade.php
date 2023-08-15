@@ -1,6 +1,6 @@
 <x-dash-layout>
 
-    <livewire:show-audi-procees/>
+    <livewire:show-audi-procees :audit="$audit"/>
 
 
 </x-dash-layout>

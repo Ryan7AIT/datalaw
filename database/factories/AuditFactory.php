@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Process>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Audit>
  */
-class ProcessFactory extends Factory
+class AuditFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,8 @@ class ProcessFactory extends Factory
     public function definition(): array
     {
         return [
-            'nom' => fake()->name(),
-            'description' => fake()->paragraph(2)
-
+            'process_id' => 1,
+            'user_id' => 1
         ];
     }
 }

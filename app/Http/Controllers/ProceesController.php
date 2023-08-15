@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Audit;
 use App\Models\Process;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,12 @@ class ProceesController extends Controller
      */
     public function show(string $id)
     {
-        return view('auditprocees');
+
+        $audit = Audit::first();
+
+        return view('auditprocees',[
+            'audit' => $audit
+        ]);
     }
 
     /**

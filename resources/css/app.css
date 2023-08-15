@@ -16,3 +16,18 @@
     opacity: 1;
     max-height: 1000px; /* Adjust this value based on your content */
 }
+
+
+.transition-div {
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(5px);
+    transform: translateX(-100%);
+}
+
+.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+
+}

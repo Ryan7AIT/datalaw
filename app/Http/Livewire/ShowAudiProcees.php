@@ -12,6 +12,7 @@ class ShowAudiProcees extends Component
     public $audit;
     public $articleStatuses;
     public $article;
+    public $groupedArticles;
     public function showSideBar($id) {
         $this->article = Article::where('id', $id)->first();
 
@@ -40,6 +41,10 @@ class ShowAudiProcees extends Component
     }
 
     public function mount(){
+
+        // $this->groupedArticles = $this->articles->groupBy('category'); // Group articles by category
+
+
         // $this->article = Article::first();
 
         // foreach ($this->audit->articles as $audit) {

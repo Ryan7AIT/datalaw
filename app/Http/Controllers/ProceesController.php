@@ -43,9 +43,12 @@ class ProceesController extends Controller
     {
 
         $audit = Audit::first();
+        $audit2 = Audit::where('process_id', $id)->first();
+
+        // dd($audit2);
 
         return view('auditprocees',[
-            'audit' => $audit
+            'audit' => $audit2
         ]);
     }
 

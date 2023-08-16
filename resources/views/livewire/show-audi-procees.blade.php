@@ -21,18 +21,99 @@
                 <hr class="mt-4 mb-8" />
                 <p class="py-2 text-xl font-semibold">Detail Audit</p>
                 <div class="space-y-1">
-                    @foreach ( $audit->articles as $artcile)
 
-                                <div x-cloak x-data="{ open: false }"  class="rounded-md border bg-white">
-                                    <div class="flex w-full items-center px-6 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span @click="open = !open" class="cursor-pointer"> {{$artcile->title }}</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-5 w-5 cursor-pointer text-gray-400 active:scale-95" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                        </svg>
-                                    </div>
+                        <div x-cloak x-data="{ open: false }"  class="rounded-md border bg-white">
+
+                                <div @click="open = !open" class="flex w-full items-center px-6 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span  class="cursor-pointer"> Base legal</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-5 w-5 cursor-pointer text-gray-400 active:scale-95" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </div>
+
+
+                                        <div x-transition x-show="open" class="flex transition flex-col space-y-3 px-4 py-6 sm:px-10">
+
+                                            <div class="">
+
+                                                <div class="mx-auto mt-8  px-2">
+
+
+                                                <div class="mt-6 overflow-hidden rounded-xl border shadow">
+                                                    <table class="min-w-full border-separate border-spacing-y-2 border-spacing-x-2">
+                                                        <thead class="hidden border-b lg:table-header-group">
+                                                            <tr class="">
+
+                                                            <td width="50%" class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Titre</td>
+
+                                                            <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Total</td>
+
+                                                            <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Etat de la tache</td>
+
+                                                            <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
+
+
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody class="lg:border-gray-300">
+                                                            @foreach ( $audit->articles as $artcile)
+                                                            @if ($artcile->category == 'base legal')
+
+                                                                <tr class="">
+                                                                    <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-2 text-sm font-bold text-gray-900 sm:px-6">
+                                                                        {{$artcile->title}}
+
+                                                                    </td>
+
+                                                                    <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+
+
+
+                                                                    <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                        <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
+                                                                    </td>
+
+                                                                    <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                        <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
+                                                                    </td>
+                                                                </tr>
+                                                                @endif
+
+                                                            @endforeach
+
+
+
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                        </div>
+
+
+                        <div x-cloak x-data="{ open: false }"  class="rounded-md border bg-white">
+
+                            <div @click="open = !open"  class="flex w-full items-center px-6 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="cursor-pointer"> Confidentialite</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-5 w-5 cursor-pointer text-gray-400 active:scale-95" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                            </div>
+
+
                                     <div x-transition x-show="open" class="flex transition flex-col space-y-3 px-4 py-6 sm:px-10">
 
                                         <div class="">
@@ -49,8 +130,6 @@
 
                                                         <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Total</td>
 
-                                                        <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Coche</td>
-
                                                         <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Etat de la tache</td>
 
                                                         <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
@@ -60,28 +139,30 @@
                                                     </thead>
 
                                                     <tbody class="lg:border-gray-300">
-                                                        <tr class="">
-                                                            <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-4 text-sm font-bold text-gray-900 sm:px-6">
-                                                                {{$artcile->title}}
+                                                        @foreach ( $audit->articles as $artcile)
+                                                        @if ($artcile->category == 'confidentialite')
 
-                                                            </td>
+                                                            <tr class="">
+                                                                <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-4 text-sm font-bold text-gray-900 sm:px-6">
+                                                                    {{$artcile->title}}
 
-                                                            <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+                                                                </td>
 
-                                                            <td class="whitespace-no-wrap py-4 px-6 text-right text-sm text-gray-600 lg:text-left">
-                                                                1
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
 
-                                                            </td>
 
-                                                            <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
-                                                                <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
-                                                            </td>
 
-                                                            <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
-                                                                <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
-                                                            </td>
-                                                        </tr>
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
+                                                                </td>
 
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
+                                                                </td>
+                                                            </tr>
+                                                            @endif
+
+                                                        @endforeach
 
 
 
@@ -94,8 +175,245 @@
 
                                         </div>
                                     </div>
+
+
+                        </div>
+
+                        <div x-cloak x-data="{ open: false }"  class="rounded-md border bg-white">
+
+                            <div @click="open = !open"  class="flex w-full items-center px-6 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="cursor-pointer"> Donnees interdit</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-5 w-5 cursor-pointer text-gray-400 active:scale-95" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                            </div>
+
+
+                                    <div x-transition x-show="open" class="flex transition flex-col space-y-3 px-4 py-6 sm:px-10">
+
+                                        <div class="">
+
+                                            <div class="mx-auto mt-8  px-2">
+
+
+                                            <div class="mt-6 overflow-hidden rounded-xl border shadow">
+                                                <table class="min-w-full border-separate border-spacing-y-2 border-spacing-x-2">
+                                                    <thead class="hidden border-b lg:table-header-group">
+                                                        <tr class="">
+
+                                                        <td width="50%" class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Titre</td>
+
+                                                        <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Total</td>
+
+                                                        <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Etat de la tache</td>
+
+                                                        <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
+
+
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody class="lg:border-gray-300">
+                                                        @foreach ( $audit->articles as $artcile)
+                                                        @if ($artcile->category == 'donnees interdit')
+
+                                                            <tr class="">
+                                                                <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-4 text-sm font-bold text-gray-900 sm:px-6">
+                                                                    {{$artcile->title}}
+
+                                                                </td>
+
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+
+
+
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
+                                                                </td>
+
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
+                                                                </td>
+                                                            </tr>
+                                                            @endif
+
+                                                        @endforeach
+
+
+
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                        </div>
+
+                        <div x-cloak x-data="{ open: false }"  class="rounded-md border bg-white">
+
+                            <div @click="open = !open"  class="flex w-full items-center px-6 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="cursor-pointer"> Droit des personnes</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-5 w-5 cursor-pointer text-gray-400 active:scale-95" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                            </div>
+
+
+                                    <div x-transition x-show="open" class="flex transition flex-col space-y-3 px-4 py-6 sm:px-10">
+
+                                        <div class="">
+
+                                            <div class="mx-auto mt-8  px-2">
+
+
+                                            <div class="mt-6 overflow-hidden rounded-xl border shadow">
+                                                <table class="min-w-full border-separate border-spacing-y-2 border-spacing-x-2">
+                                                    <thead class="hidden border-b lg:table-header-group">
+                                                        <tr class="">
+
+                                                        <td width="50%" class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Titre</td>
+
+                                                        <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Total</td>
+
+                                                        <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Etat de la tache</td>
+
+                                                        <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
+
+
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody class="lg:border-gray-300">
+                                                        @foreach ( $audit->articles as $artcile)
+                                                        @if ($artcile->category == 'droit des personnes')
+
+                                                            <tr class="">
+                                                                <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-4 text-sm font-bold text-gray-900 sm:px-6">
+                                                                    {{$artcile->title}}
+
+                                                                </td>
+
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+
+
+
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
+                                                                </td>
+
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
+                                                                </td>
+                                                            </tr>
+                                                            @endif
+
+                                                        @endforeach
+
+
+
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                        </div>
+
+                        <div x-cloak x-data="{ open: false }"  class="rounded-md border bg-white">
+
+                            <div @click="open = !open"  class="flex w-full items-center px-6 py-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="cursor-pointer"> Principe</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-5 w-5 cursor-pointer text-gray-400 active:scale-95" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                            </div>
+
+
+                            <div x-transition x-show="open" class="flex transition flex-col space-y-3 px-4 py-6 sm:px-10">
+
+                                <div class="">
+
+                                    <div class="mx-auto mt-8  px-2">
+
+
+                                    <div class="mt-6 overflow-hidden rounded-xl border shadow">
+                                        <table class="min-w-full border-separate border-spacing-y-2 border-spacing-x-2">
+                                            <thead class="hidden border-b lg:table-header-group">
+                                                <tr class="">
+
+                                                <td width="50%" class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Titre</td>
+
+                                                <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Total</td>
+
+                                                <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Etat de la tache</td>
+
+                                                <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
+
+
+                                                </tr>
+                                            </thead>
+
+                                            <tbody class="lg:border-gray-300">
+                                                @foreach ( $audit->articles as $artcile)
+                                                    @if ($artcile->category == 'principe')
+
+                                                        <tr class="">
+                                                            <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-2 text-sm font-bold text-gray-900 sm:px-6">
+                                                                {{$artcile->title}}
+
+                                                            </td>
+
+                                                            <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+
+
+
+                                                            <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
+                                                            </td>
+
+                                                            <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+
+                                                @endforeach
+
+
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+
                                 </div>
-                    @endforeach
+                            </div>
+
+
+                        </div>
+
+
 
 
                 </div>
@@ -125,14 +443,10 @@
 
                 <div class="desc px-6 py-4 mt-8">
                     <h4 class="text-gray-400 mt-2">Categorie</h4>
-                    <p>Base legal</p>
+                    <p>{{$article->category}}</p>
 
                     <h4 class="text-gray-400 mt-2">Total</h4>
                     <p>{{$article->rules()->count() }}</p>
-
-                    <h4 class="text-gray-400 mt-2">Coche</h4>
-                    <p>4</p>
-
 
                     <h4 class="text-gray-400 mt-2">Etat de la tache</h4>
                     <p>En cour</p>
@@ -149,7 +463,7 @@
                 <div class="verification px-6 py-4 mt-8">
                     <h1 class="font-semibold text-lg">Verification additionnelles</h1>
 
-                    <table class="min-w-full border-separate   rounded-xl border shadow">
+                    {{-- <table class="min-w-full border-separate   rounded-xl border shadow">
                         <thead class="hidden border-b lg:table-header-group ">
                             <tr class="bg-gray-100">
 
@@ -183,14 +497,24 @@
 
 
                         </tbody>
-                    </table>
+                    </table> --}}
 
 
+                    <ul class="list-decimal mt-4  ml-10">
+                        @foreach ($article->rules as $rule)
+
+                                <li class="py-1  font-semibold text-gray-900 sm:px-6">
+                                        {{$rule->title}}
+
+                                </li>
+
+                            @endforeach
+                    </ul>
                 </div>
 
                 <div class="memo  px-6 py-4 mt-8">
-                    <h2>Memo</h2>
-                    <p>{{$article->memo}}</p>
+                    <h4 class="text-gray-400 mt-2">Memo</h4>
+                    <p class="pl-4 leading-8 ">{{$article->memo}}</p>
                 </div>
             </main>
 

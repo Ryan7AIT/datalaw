@@ -1,3 +1,4 @@
+
 <div x-data="{ showAddStep: false }">
     <div class="">
 
@@ -32,7 +33,7 @@
           </thead>
 
           <tbody class="lg:border-gray-300">
-            @foreach ($audits as $audit )
+           @forelse ($audits as $audit )
 
             <tr class="">
               <td  class="whitespace-no-wrap py-4 text-sm font-bold  text-gray-900 sm:px-6">
@@ -57,7 +58,11 @@
 
               </td>
             </tr>
-            @endforeach
+
+            @empty
+
+            ...
+            @endforelse
 
 
           </tbody>

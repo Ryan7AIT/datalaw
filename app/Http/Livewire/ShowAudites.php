@@ -40,12 +40,18 @@ class ShowAudites extends Component
         $audit->articles()->attach('6', ['status' => 0]);
         $audit->articles()->attach('7', ['status' => 0]);
         $audit->articles()->attach('8', ['status' => 0]);
+        $audit->articles()->attach('9', ['status' => 0]);
+        $audit->articles()->attach('10', ['status' => 0]);
+        $audit->articles()->attach('11', ['status' => 0]);
+
 
 
     }
     public function render()
     {
-        $audits = Audit::all();
+        $audits = Audit::where('user_id', Auth()->user()->id)->get();
+
+        // dd($audits);
         $processes = Process::all();
 
         return view('livewire.show-audites', compact('audits','processes'));

@@ -69,7 +69,9 @@
 
                                                                     </td>
 
-                                                                    <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+                                                                    <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                        <p>{{$artcile->rules()->count() }}</p>
+                                                                    </td>
 
 
 
@@ -148,7 +150,9 @@
 
                                                                 </td>
 
-                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <p>{{$artcile->rules()->count() }}</p>
+                                                                </td>
 
 
 
@@ -226,7 +230,10 @@
 
                                                                 </td>
 
-                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                    <p>{{$artcile->rules()->count() }}</p>
+
+                                                                </td>
 
 
 
@@ -270,67 +277,69 @@
                             </div>
 
 
-                                    <div x-transition x-show="open" class="flex transition flex-col space-y-3 px-4 py-6 sm:px-10">
+                            <div x-transition x-show="open" class="flex transition flex-col space-y-3 px-4 py-6 sm:px-10">
 
-                                        <div class="">
+                                <div class="">
 
-                                            <div class="mx-auto mt-8  px-2">
-
-
-                                            <div class="mt-6 overflow-hidden rounded-xl border shadow">
-                                                <table class="min-w-full border-separate border-spacing-y-2 border-spacing-x-2">
-                                                    <thead class="hidden border-b lg:table-header-group">
-                                                        <tr class="">
-
-                                                        <td width="50%" class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Titre</td>
-
-                                                        <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Total</td>
-
-                                                        <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Etat de la tache</td>
-
-                                                        <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
+                                    <div class="mx-auto mt-8  px-2">
 
 
-                                                        </tr>
-                                                    </thead>
+                                    <div class="mt-6 overflow-hidden rounded-xl border shadow">
+                                        <table class="min-w-full border-separate border-spacing-y-2 border-spacing-x-2">
+                                            <thead class="hidden border-b lg:table-header-group">
+                                                <tr class="">
 
-                                                    <tbody class="lg:border-gray-300">
-                                                        @foreach ( $audit->articles as $artcile)
-                                                        @if ($artcile->category == 'droit des personnes')
+                                                <td width="50%" class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Titre</td>
 
-                                                            <tr class="">
-                                                                <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-4 text-sm font-bold text-gray-900 sm:px-6">
-                                                                    {{$artcile->title}}
+                                                <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Total</td>
 
-                                                                </td>
+                                                <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6">Etat de la tache</td>
 
-                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+                                                <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
 
 
+                                                </tr>
+                                            </thead>
 
-                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
-                                                                    <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
-                                                                </td>
+                                            <tbody class="lg:border-gray-300">
+                                                @foreach ( $audit->articles as $artcile)
+                                                @if ($artcile->category == 'droit des personnes')
 
-                                                                <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
-                                                                    <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
-                                                                </td>
-                                                            </tr>
-                                                            @endif
+                                                    <tr class="">
+                                                        <td wire:click="showSideBar({{$artcile->id}})"  width="50%" class="whitespace-no-wrap cursor-pointer py-4 text-sm font-bold text-gray-900 sm:px-6">
+                                                            {{$artcile->title}}
 
-                                                        @endforeach
+                                                        </td>
+
+                                                        <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                            <p>{{$artcile->rules()->count() }}</p>
+                                                        </td>
 
 
 
+                                                        <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                            <div class="inline-flex items-center rounded-full bg-blue-600 py-2 px-3 text-xs text-white">En cours</div>
+                                                        </td>
+
+                                                        <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                            <input wire:click="toggleArticleStatus({{$artcile->id}})" wire:model="articleStatuses.{{ $artcile->id }}" type="checkbox">
+                                                        </td>
+                                                    </tr>
+                                                    @endif
+
+                                                @endforeach
 
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            </div>
 
-                                        </div>
+
+
+                                            </tbody>
+                                        </table>
                                     </div>
+                                    </div>
+
+                                </div>
+                            </div>
 
 
                         </div>
@@ -382,7 +391,9 @@
 
                                                             </td>
 
-                                                            <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">3</td>
+                                                            <td class="whitespace-no-wrap hidden py-2 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
+                                                                <p>{{$artcile->rules()->count() }}</p>
+                                                            </td>
 
 
 
@@ -463,41 +474,6 @@
                 <div class="verification px-6 py-4 mt-8">
                     <h1 class="font-semibold text-lg">Verification additionnelles</h1>
 
-                    {{-- <table class="min-w-full border-separate   rounded-xl border shadow">
-                        <thead class="hidden border-b lg:table-header-group ">
-                            <tr class="bg-gray-100">
-
-                            <td  class="whitespace-normal py-4 text-sm font-bold text-gray-900 sm:px-6">Titre</td>
-
-                            <td width class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-6 w-16"></td>
-
-
-                            </tr>
-                        </thead>
-
-                        <tbody class="border-gray-300 ">
-                            @foreach ($article->rules as $rule)
-
-                                <tr class="">
-                                    <td  class="whitespace-no-wrap cursor-pointer py-4 text-sm font-semdibold text-gray-900 sm:px-6">
-                                        {{$rule->title}}
-
-                                    </td>
-
-
-                                    <td class="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
-                                        <input type="checkbox">
-                                    </td>
-                                </tr>
-
-                            @endforeach
-
-
-
-
-
-                        </tbody>
-                    </table> --}}
 
 
                     <ul class="list-decimal mt-4  ml-10">

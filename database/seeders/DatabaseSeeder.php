@@ -84,8 +84,87 @@ class DatabaseSeeder extends Seeder
             'description' => "Il est institué un registre national de protection
             des données à caractère personnel, dont la tenue est dévolue
             à l'autorité nationale, sur lequel sont inscrits (Article 28).",
-            'memo' => "et article établit la création d'un registre national de protection des données à caractère personnel, dont la responsabilité est confiée à l'autorité nationale. Ce registre contient des informations importantes, notamment les fichiers dont les autorités publiques sont responsables du traitement, les fichiers traités par des entités privées, les références aux lois et règlements établissant des fichiers publics, les déclarations à l'autorité nationale ainsi que les autorisations délivrées. Il contient également les données nécessaires pour permettre aux personnes concernées d'exercer les droits prévus par la loi. Les fichiers qui ont pour unique objectif la tenue d'un registre consultable par le public sont dispensés de l'inscription, mais l'identité de la personne responsable du traitement doit être enregistrée dans le registre national."
+            'memo' => "Cet article établit la création d'un registre national de protection des données à caractère personnel, dont la responsabilité est confiée à l'autorité nationale. Ce registre contient des informations importantes, notamment les fichiers dont les autorités publiques sont responsables du traitement, les fichiers traités par des entités privées, les références aux lois et règlements établissant des fichiers publics, les déclarations à l'autorité nationale ainsi que les autorisations délivrées. Il contient également les données nécessaires pour permettre aux personnes concernées d'exercer les droits prévus par la loi. Les fichiers qui ont pour unique objectif la tenue d'un registre consultable par le public sont dispensés de l'inscription, mais l'identité de la personne responsable du traitement doit être enregistrée dans le registre national."
         ]);
+
+        $article09 = Article::factory()->create([
+            'category' => 'droit des personnes',
+            'title' => "Droit a l'information",
+            'description' => " Sauf si elle en a déjà eu connaissance, toute
+            personne sollicitée, en vue d'une collecte de ses données à
+            caractère personnel, doit être, préalablement, informée de
+            manière expresse et non équivoque par le responsable du
+            traitement ou son représentant, des éléments suivants :
+            — l'identité du responsable du traitement et, le cas
+            échéant, de son représentant ;
+            — les finalités du traitement ;
+            — toutes informations supplémentaires utiles notamment
+            le destinataire, l'obligation de répondre et ses
+            conséquences ainsi que ses droits et le transfert des données
+            à l'étranger.
+            Lorsque les données à caractère personnel n'ont pas été
+            collectées auprès de la personne concernée, le responsable
+            du traitement ou son représentant doit, avant l'enregistrement
+            des données ou leur communication à un tiers, fournir à la
+            personne concernée les informations visées ci-dessus, sauf
+            si la personne en a déjà eu connaissance.
+            En cas de collecte de données, en réseaux ouverts, la
+            personne concernée doit être informée, sauf si elle sait
+            déjà que les données à caractère personnel la concernant
+            peuvent circuler sur les réseaux sans garanties de sécurité et
+            qu'elles risquent d'être lues et utilisées, par des tiers non
+            autorisés(Article 32).",
+            'memo' => "Cet article énonce les exigences relatives à l'information préalable des personnes dont les données à caractère personnel sont collectées. Avant la collecte, la personne concernée doit être informée de manière explicite et non équivoque par le responsable du traitement ou son représentant des éléments suivants :
+
+                L'identité du responsable du traitement et, le cas échéant, de son représentant.
+                Les finalités du traitement.
+                Toutes informations supplémentaires pertinentes, y compris les destinataires des données, l'obligation de répondre, les conséquences éventuelles, les droits de la personne concernée et le transfert de données à l'étranger."
+        ]);
+
+
+        $article10 = Article::factory()->create([
+            'category' => 'droit des personnes',
+            'title' => ' droit de la personne concernée',
+            'description' => "La personne concernée a le droit d'obtenir du
+            responsable du traitement :
+            — la confirmation que les données personnelles la
+            concernant sont ou ne sont pas traitées, les finalités du
+            traitement, les catégories de données sur lesquelles il porte
+            et les destinataires ;
+            — la communication, sous une forme intelligible, de
+            ses données qui font l'objet de traitement, ainsi que de
+            toute information disponible sur l'origine des données.
+            Le responsable du traitement peut demander à l'autorité
+            nationale des délais de réponse aux demandes d'accès
+            légitimes et peut s'opposer aux demandes manifestement
+            abusives, notamment, par leur nombre et leur caractère
+            répétitif. La charge de la preuve du caractère manifestement
+            abusif de la demande, incombe au responsable du
+            traitement(Article 34).",
+            'memo' => "Cet article énonce les droits de la personne concernée en matière d'accès à ses données personnelles. La personne concernée a le droit d'obtenir du responsable du traitement les informations suivantes :
+
+                Confirmation que ses données personnelles sont traitées ou non, ainsi que les finalités du traitement, les catégories de données traitées et les destinataires.
+                Communication de ses données personnelles en forme intelligible, ainsi que toute information disponible sur l'origine de ces données.
+                Le responsable du traitement a la possibilité de demander à l'autorité nationale des délais de réponse pour répondre aux demandes d'accès légitimes. De plus, il peut s'opposer aux demandes manifestement abusives, notamment celles qui sont excessives en nombre ou répétitives. La charge de la preuve du caractère manifestement abusif de la demande incombe au responsable du traitement."
+        ]);
+
+
+        $article11 = Article::factory()->create([
+            'category' => 'confidentialite',
+            'title' => 'Transfert de données vers un pays étranger',
+            'description' => "Le responsable d'un traitement ne peut
+            transférer, les données à caractère personnel vers un Etat
+            étranger, que sur autorisation de l'autorité nationale,
+            conformément aux dispositions de la présente loi et que si
+            cet Etat assure un niveau de protection suffisant de la vie
+            privée et des libertés et droits fondamentaux des personnes
+            à l'égard du traitement dont ces données font l'objet ou
+            peuvent faire l'objet. (Article 44).",
+            'memo' => "Cet article établit les conditions pour le transfert de données à caractère personnel vers un État étranger. Un responsable de traitement ne peut transférer des données à caractère personnel vers un pays étranger que s'il obtient l'autorisation de l'autorité nationale et si cet État étranger garantit un niveau de protection suffisant de la vie privée et des droits fondamentaux des personnes concernant le traitement de ces données. Le niveau de protection suffisant est évalué par l'autorité nationale en tenant compte des dispositions juridiques, des mesures de sécurité, des caractéristiques du traitement et de la nature des données.
+
+            Le transfert de données à caractère personnel vers un pays étranger est interdit si cela pourrait compromettre la sécurité publique ou les intérêts vitaux de l'État."
+        ]);
+
 
 
         $article04 = Article::factory()->create([
@@ -198,50 +277,103 @@ class DatabaseSeeder extends Seeder
             'title' => "Collaborer avec l'autorité nationale pour se conformer aux conditions et modalités réglementaires de tenue du registre national."
         ]);
 
+        Rule::factory()->create([
+            'article_id' => $article09->id,
+            'title' => "S'assurer que toutes les informations nécessaires sont fournies de manière claire et explicite avant la collecte des données."
+        ]);
 
-        // $articles2 = Article::factory(5)->create([
-        //     'category' => 'confidentialite'
-        // ]);
+        Rule::factory()->create([
+            'article_id' => $article09->id,
+            'title' => "Si les données ont été collectées auprès de tiers, veiller à fournir les informations requises avant l'enregistrement ou la communication des données."
+        ]);
 
-        // $articles3 = Article::factory(2)->create([
-        //     'category' => 'principe'
-        // ]);
+        Rule::factory()->create([
+            'article_id' => $article09->id,
+            'title' => "Respecter les droits des personnes concernées en fournissant des informations transparentes sur les finalités du traitement, les destinataires des données, les droits de la personne concernée, etc."
+        ]);
 
-        // Rule::factory(3)->create([
-        //     'article_id' => 1
-        // ]);
-
-        // Rule::factory(3)->create([
-        //     'article_id' => 2
-        // ]);
+        Rule::factory()->create([
+            'article_id' => $article09->id,
+            'title' => "S'assurer que la personne concernée est informée même en cas de collecte de données sur des réseaux ouverts, sauf si elle est déjà consciente des risques."
+        ]);
 
 
-        // Rule::factory(3)->create([
-        //     'article_id' => 4
-        // ]);
+        Rule::factory()->create([
+            'article_id' => $article09->id,
+            'title' => "Veiller à ce que les informations fournies à la personne concernée soient confidentielles et ne soient pas partagées avec des tiers non autorisés."
+        ]);
 
-        // Rule::factory(4)->create([
-        //     'article_id' => 5
-        // ]);
+        Rule::factory()->create([
+            'article_id' => $article09->id,
+            'title' => "Garantir que les données collectées sur des réseaux ouverts sont sécurisées et protégées conformément aux normes de sécurité appropriées."
+        ]);
 
-        // Process::factory(5)->create();
+        Rule::factory()->create([
+            'article_id' => $article10->id,
+            'title' => "Respecter le droit de la personne concernée d'obtenir des informations sur le traitement de ses données, y compris les finalités, les catégories de données et les destinataires."
+        ]);
 
-        $audit = Audit::factory()->create();
+        Rule::factory()->create([
+            'article_id' => $article10->id,
+            'title' => "Fournir à la personne concernée ses données personnelles dans un format compréhensible et avec des informations sur leur origine."
+        ]);
 
-        // foreach ($articles as $article) {
+        Rule::factory()->create([
+            'article_id' => $article10->id,
+            'title' => "Assurer que les données personnelles communiquées à la personne concernée sont traitées de manière confidentielle et ne sont pas partagées avec des tiers non autorisés."
+        ]);
 
-        //     $article->audits()->attach($audit->id, ['status' => 1]);
+        Rule::factory()->create([
+            'article_id' => $article10->id,
+            'title' => "Respecter les délais de réponse aux demandes d'accès légitimes et justifier tout retard auprès de l'autorité nationale si nécessaire."
+        ]);
 
-        // }
 
-        $article03->audits()->attach($audit->id, ['status' => 0]);
-        $article01->audits()->attach($audit->id, ['status' => 0]);
-        $article02->audits()->attach($audit->id, ['status' => 0]);
-        $article04->audits()->attach($audit->id, ['status' => 0]);
-        $article05->audits()->attach($audit->id, ['status' => 0]);
-        $article06->audits()->attach($audit->id, ['status' => 0]);
-        $article07->audits()->attach($audit->id, ['status' => 0]);
-        $article08->audits()->attach($audit->id, ['status' => 0]);
+        Rule::factory()->create([
+            'article_id' => $article11->id,
+            'title' => "Vérifier si l'État étranger garantit un niveau de protection suffisant de la vie privée et des droits fondamentaux des personnes."
+        ]);
+
+
+        Rule::factory()->create([
+            'article_id' => $article11->id,
+            'title' => "Évaluer les dispositions juridiques et les mesures de sécurité en vigueur dans l'État étranger pour s'assurer de la confidentialité et de la sécurité des données transférées."
+        ]);
+
+
+        Rule::factory()->create([
+            'article_id' => $article11->id,
+            'title' => "Obtenir l'autorisation de l'autorité nationale avant de transférer des données à caractère personnel vers un pays étranger."
+        ]);
+
+
+        Rule::factory()->create([
+            'article_id' => $article11->id,
+            'title' => "Évaluer si le transfert de données pourrait compromettre la sécurité publique ou les intérêts vitaux de l'État et éviter de telles situations."
+        ]);
+
+
+
+
+
+
+
+        // $audit = Audit::factory()->create();
+
+
+
+        // $article03->audits()->attach($audit->id, ['status' => 0]);
+        // $article01->audits()->attach($audit->id, ['status' => 0]);
+        // $article02->audits()->attach($audit->id, ['status' => 0]);
+        // $article04->audits()->attach($audit->id, ['status' => 0]);
+        // $article05->audits()->attach($audit->id, ['status' => 0]);
+        // $article06->audits()->attach($audit->id, ['status' => 0]);
+        // $article07->audits()->attach($audit->id, ['status' => 0]);
+        // $article08->audits()->attach($audit->id, ['status' => 0]);
+        // $article09->audits()->attach($audit->id, ['status' => 0]);
+        // $article10->audits()->attach($audit->id, ['status' => 0]);
+        // $article11->audits()->attach($audit->id, ['status' => 0]);
+
 
 
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProceesController;
+use App\Http\Controllers\RightController;
 use App\Models\Process;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,9 @@ Route::get('/dashboard/traitment/audit', [AuditController::class, 'index']);
 
 Route::get('/dashboard/traitment/{id}/edit', [ProceesController::class, 'edit']);
 Route::get('/dashboard/traitments', [ProceesController::class, 'index']);
+
+Route::get('/dashboard/droits', [RightController::class, 'index']);
+
 
 
 Route::get('/dashboard', function () {

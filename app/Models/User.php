@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function audits() {
         return $this->hasMany(Audit::class);
     }
+
+    public function rights() {
+        return $this->hasMany(Right::class);
+    }
 }

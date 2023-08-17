@@ -49,7 +49,7 @@
             <nav aria-label="Sidebar Navigation" class="peer-checked:w-64 left-0 z-10 flex h-screen w-0 flex-col overflow-hidden bg-gray-700 text-white transition-all md:h-screen md:w-64 lg:w-72">
               <div class="bg-slate-800 mt-5 py-4 pl-10 md:mt-10">
                 <span class="">
-                  <span class="text-xl">DATAFIRST</span>
+                  <a href="/" class="text-xl">DATAFIRST</a>
                 </span>
               </div>
               <ul class="mt-8 space-y-3 md:mt-20">
@@ -110,13 +110,13 @@
                       @endif
                 </li>
                 <li class="relative">
-                  <a href="/dashboard/traitment/1/edit" class="@if(!request()->is('dashboard/traitment/*/edit'))  text-gray-300 @else font-semibold @endif focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4  focus:outline-none">
+                  <a href="/dashboard/droits" class="@if(!request()->is('dashboard/droits'))  text-gray-300 @else font-semibold @endif focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4  focus:outline-none">
                     <span
                       ><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg></span
-                    ><span class="">Details de traitment</span>
+                    ><span class="">Registre des demande de droits</span>
                   </a>
-                  @if(request()->is('dashboard/traitment/*/edit'))
+                  @if(request()->is('dashboard/droits'))
                   <svg class="text-slate-200 absolute -right-1 -top-1/2 z-10 hidden h-32 w-8 md:block" xmlns="http://www.w3.org/2000/svg" viewBox="399.349 57.696 100.163 402.081" width="1em" height="4em">
                     <path fill="currentColor" d="M 499.289 57.696 C 499.289 171.989 399.349 196.304 399.349 257.333 C 399.349 322.485 499.512 354.485 499.512 458.767 C 499.512 483.155 499.289 57.696 499.289 57.696 Z" />
                   </svg>

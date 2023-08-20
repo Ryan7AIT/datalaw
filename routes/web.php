@@ -4,7 +4,12 @@ use App\Http\Controllers\AuditController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProceesController;
 use App\Http\Controllers\RightController;
+use App\Http\Controllers\SubcontractorController;
+use App\Models\Article;
+use App\Models\Audit;
 use App\Models\Process;
+use App\Models\Right;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,13 +43,43 @@ Route::get('/dashboard/traitments', [ProceesController::class, 'index']);
 Route::get('/dashboard/droits', [RightController::class, 'index']);
 
 
+Route::get('/dashboard/soustraitants', [SubcontractorController::class, 'index']);
+
+
+
 
 Route::get('/dashboard', function () {
 
     $proceessCount = Process::all()->count();
+    $proceessCountAudit = Audit::distinct('process_id')->count('process_id');
+    $rightsCount = Right::count();
+    $transfer = Article::where('title', 'Transfert de données vers un pays étranger')->first()->id;
+    $articlesCount = Article::count();
+
+    $articleAuditsWithStatusZero = DB::table('article_audit')
+    ->where('status', 1)
+    ->count();
+
+    $articleAudits = DB::table('article_audit')
+    ->count();
+
+    if($articleAudits === 0) {
+        $confermityLvl = 100;
+    }else {
+
+        $confermityLvl =  (int) (($articleAuditsWithStatusZero * 100 ) / $articleAudits);
+    }
+
+
 
     return view('dashboard', [
-        'proceessCount' => $proceessCount
+        'proceessCount' => $proceessCount,
+        'proceessCountAudit' => $proceessCountAudit,
+        'rightsCount' => $rightsCount,
+        'confermityLvl' => $confermityLvl,
+
+
+
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -11,16 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rights', function (Blueprint $table) {
+        Schema::create('subcontractors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('status');
-            $table->string('ufname');
-            $table->string('ulname');
-            $table->string('uemail');
-            $table->text('description');
-            $table->foreignId('process_id');
-            $table->string('path')->nullable();
+            $table->string('email');
+            $table->text('raison');
+            $table->text('address');
+            $table->text('path');
+            $table->text('number');
+            $table->text('responsable');
+
+
+
+
+
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rights');
+        Schema::dropIfExists('subcontractors');
     }
 };

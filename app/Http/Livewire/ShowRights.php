@@ -5,9 +5,11 @@ namespace App\Http\Livewire;
 use App\Models\Process;
 use App\Models\Right;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ShowRights extends Component
 {
+    use WithFileUploads;
 
     public $rights;
     public $fname;
@@ -28,6 +30,7 @@ class ShowRights extends Component
     public function submit() {
         $this->validate();
 
+        $path = $this->docs->store('contracts','public');
         $right = Right::create([
             'name' => 'droit_de_' . '_' . $this->fname . '_' .$this->lname . '_' . $this->process ,
             'status' => 'en cour',
@@ -36,6 +39,7 @@ class ShowRights extends Component
             'uemail' => $this->email,
             'description' => $this->description,
             'process_id' => $this->process,
+            'path' => $path
 
         ]);
 

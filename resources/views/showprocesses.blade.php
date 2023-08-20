@@ -44,7 +44,7 @@
           </thead>
 
           <tbody class="lg:border-gray-300">
-            @foreach ($proceess as $Procees )
+            @forelse ($proceess as $Procees )
 
             <tr class="">
               <td  class="whitespace-no-wrap py-4 text-sm font-bold  text-gray-900 sm:px-6">
@@ -81,7 +81,20 @@
 
               </td>
             </tr>
-            @endforeach
+
+            @empty
+
+            <tr class="">
+                <td  class="whitespace-no-wrap  text-center py-4 text-sm font-bold  text-red-400 sm:px-6">
+                  Pas de traitments
+
+                </td>
+
+              </tr>
+
+            @endforelse
+
+
 
 
           </tbody>

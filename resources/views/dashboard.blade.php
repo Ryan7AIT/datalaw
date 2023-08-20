@@ -33,7 +33,7 @@
                         <div class="ml-4 mt-2">
                             <p class="mt-4 font-medium text-xl text-center">Traitments en cour d'audit</p>
                             <p class="mt-2 text-xl font-semibold text-center">
-                            2
+                            {{$proceessCountAudit}}
 
                             </p>
                         </div>
@@ -96,7 +96,7 @@
                         <div class="ml-4 mt-2">
                             <p class="mt-4 font-medium text-xl text-center">Demande de droits</p>
                             <p class="mt-2 text-xl font-semibold text-center">
-                            1
+                            {{$rightsCount}}
 
                             </p>
                         </div>
@@ -113,7 +113,7 @@
 
                     <p class="mt-4  text-center text-2xl font-semibold">Niveau  de confermite des  traitments</p>
                     <p class="mt-4  text-blue-500  font-bold text-3xl text-center">
-                    {{$proceessCount}}%
+                    {{$confermityLvl}}%
 
                     </p>
                 </div>

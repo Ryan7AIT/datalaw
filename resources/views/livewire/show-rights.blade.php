@@ -21,7 +21,7 @@
             <table class="w-full border-separate border-spacing-y-2 border-spacing-x-2">
               <thead class=" border-b lg:table-header-group">
                 <tr class="">
-                  <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center">Nom de la demande</td>
+                  {{-- <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center">Nom de la demande</td> --}}
                   <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center">La personne concernee </td>
 
 
@@ -30,6 +30,9 @@
 
                   <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center">Date de reciption de la demande</td>
 
+                  <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center">Contrat</td>
+
+
                 </tr>
               </thead>
 
@@ -37,12 +40,12 @@
                @forelse ($rights as $rights )
 
                 <tr class="">
-                  <td  class="whitespace-no-wrap py-4 text-sm font-bold  text-gray-900 sm:px-6">
+                  {{-- <td  class="whitespace-no-wrap py-4 text-sm font-bold  text-gray-900 sm:px-6">
                     {{$rights->name}}
 
 
 
-                  </td>
+                  </td> --}}
 
                   <td class="whitespace-no-wrap  py-4 text-sm font-normal  text-gray-500 sm:px-6 lg:table-cell">
                     {{$rights->ufname}}
@@ -65,11 +68,28 @@
                     {{$rights->created_at->diffForHumans()}}
 
                   </td>
+
+                <td  class="whitespace-no-wrap py-4 text-sm font-bold  text-gray-900 sm:px-6">
+                    <a target="_blank" href="{{ asset('storage/' . $rights->path )}} ">Contart</a>
+
+                  </td>
+
+
                 </tr>
 
                 @empty
 
-                no right yet
+                <tr class="">
+
+                    <td class="whitespace-no-wrap  py-4 text-sm font-normal  text-red-400 sm:px-6 lg:table-cell">
+                      pas de demandes de droit
+
+
+                  </td>
+
+
+
+                  </tr>
                 @endforelse
 
 
@@ -167,8 +187,8 @@
                 </div>
 
 
-                <div class="lg:m-10">
-                    <form wire:submit.prevent="submit" class="relative space-y-3 max-w-screen-md mx-auto  p-6  lg:p-10">
+                <div class="lg:m-2">
+                    <form wire:submit.prevent="submit" class="relative space-y-3 max-w-screen-md mx-auto  p-4  lg:p-6">
 
                         <div class="grid gap-3 md:grid-cols-2 space-x-8">
                             <div>
@@ -215,7 +235,7 @@
                         <div>
 
                                 <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Document</label>
-                                <input wire:model="doc" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="file_input" type="file">
+                                <input wire:model="docs" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="file_input" type="file">
 
                         </div>
                         </div>

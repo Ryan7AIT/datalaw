@@ -61,7 +61,12 @@
 
             @empty
 
-            ...
+            <tr>
+                <td class="whitespace-no-wrap   py-4  px-6 text-sm text-red-400 ">
+                    Pas de audit...
+
+                  </td>
+            </tr>
             @endforelse
 
 

@@ -50,6 +50,24 @@ class ShowRights extends Component
 
     }
 
+
+    protected $listeners = ['rightUpdated'];
+
+    public function rightUpdated() {
+
+    }
+
+    public function toggleStatus($id) {
+
+        $right = Right::where('id', $id)->first();
+
+        $right->status = "Fait";
+
+        $right->save();
+
+        $this->emit('rightUpdated');
+    }
+
     public function render()
     {
         $processes = Process::all();

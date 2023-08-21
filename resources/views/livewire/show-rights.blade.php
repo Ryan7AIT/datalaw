@@ -31,6 +31,8 @@
                   <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center">Date de reciption de la demande</td>
 
                   <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center">Contrat</td>
+                  <td class="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-2 mx-auto text-center "></td>
+
 
 
                 </tr>
@@ -39,7 +41,7 @@
               <tbody class="lg:border-gray-300">
                @forelse ($rights as $rights )
 
-                <tr class="">
+                <tr x-data="{ open: false }" class="relative">
                   {{-- <td  class="whitespace-no-wrap py-4 text-sm font-bold  text-gray-900 sm:px-6">
                     {{$rights->name}}
 
@@ -74,6 +76,16 @@
 
                   </td>
 
+                  <td>
+                    <svg @click="open = !open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 cursor-pointer">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                      </svg>
+
+                  </td>
+
+                  <td x-transition x-cloak x-show="open" class="absolute transition py-2 px-4 bg-gray-50 hover:bg-gray-100 top-4  right-8 rounded-md shadow border-gray-50  ">
+                    <button wire:click="toggleStatus({{ $rights->id }})"  @click="open = false">Mark as done</button>
+                  </td>
 
                 </tr>
 
@@ -86,6 +98,7 @@
 
 
                   </td>
+
 
 
 
